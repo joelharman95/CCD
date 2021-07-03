@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/spacing_small"
+    tools:context=".ui.cart.CartActivity">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Cart"
+        android:textColor="@color/black"
+        android:textSize="@dimen/size_24"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/ivBack"
+        app:layout_constraintEnd_toStartOf="@id/btnClearAll"
+        app:layout_constraintStart_toEndOf="@id/ivBack"
+        app:layout_constraintTop_toTopOf="@id/ivBack" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/spacing_small"
+        android:background="@drawable/back_bg"
+        android:padding="@dimen/spacing_small"
+        android:paddingStart="@dimen/spacing_normal"
+        android:src="@drawable/ic_left_arrow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/black" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnClearAll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Clear All"
+        android:textAllCaps="false"
+        android:textSize="@dimen/size_12"
+        app:cornerRadius="@dimen/spacing_normal"
+        app:layout_constraintBottom_toBottomOf="@id/ivBack"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/ivBack" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvCart"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:paddingTop="@dimen/spacing_small"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toTopOf="@+id/btnApplyCoupons"
+        app:layout_constraintTop_toBottomOf="@id/ivBack"
+        tools:itemCount="3"
+        tools:listitem="@layout/layout_cart_item" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvNoCart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminateTint="@color/red"
+        android:text="Your cart is empty"
+        app:layout_constraintBottom_toTopOf="@+id/btnApplyCoupons"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnClearAll" />
+
+    <ProgressBar
+        android:id="@+id/pbCart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminateTint="@color/red"
+        app:layout_constraintBottom_toTopOf="@+id/btnApplyCoupons"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnClearAll" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnApplyCoupons"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_marginStart="@dimen/spacing_normal"
+        android:layout_marginTop="@dimen/spacing_normal"
+        android:layout_marginEnd="@dimen/spacing_normal"
+        android:backgroundTint="@color/black"
+        android:drawableEnd="@drawable/ic_forward_arrow"
+        android:drawableTint="@color/white"
+        android:text="Apply Coupons"
+        android:textAllCaps="false"
+        app:cornerRadius="@dimen/spacing_normal"
+        app:layout_constraintBottom_toTopOf="@id/tvItemTotal" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvItemTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_small"
+        android:padding="@dimen/spacing_small"
+        android:text="Item Total:"
+        app:layout_constraintBottom_toTopOf="@id/tvDelivery"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvItemTotalPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_small"
+        android:padding="@dimen/spacing_small"
+        android:text="560 rs"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tvItemTotal" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvDelivery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_small"
+        android:padding="@dimen/spacing_small"
+        android:text="Delivery Charges:"
+        app:layout_constraintBottom_toTopOf="@id/tvTax"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvDeliveryPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_small"
+        android:padding="@dimen/spacing_small"
+        android:text="36 rs"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tvDelivery" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvTax"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_small"
+        android:padding="@dimen/spacing_small"
+        android:text="Tax:"
+        app:layout_constraintBottom_toTopOf="@id/tvTotal"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvTaxPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_small"
+        android:padding="@dimen/spacing_small"
+        android:text="18 rs"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tvTax" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_small"
+        android:padding="@dimen/spacing_small"
+        android:text="Total:"
+        android:textColor="@color/black"
+        android:textSize="@dimen/size_20"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/btnPay"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvTotalPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_small"
+        android:padding="@dimen/spacing_small"
+        android:text="614 rs"
+        android:textColor="@color/black"
+        android:textSize="@dimen/size_20"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tvTotal" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnPay"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_marginStart="@dimen/spacing_normal"
+        android:layout_marginTop="@dimen/spacing_normal"
+        android:layout_marginEnd="@dimen/spacing_normal"
+        android:text="Proceed to Pay"
+        android:textAllCaps="false"
+        app:cornerRadius="@dimen/spacing_normal"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/groupPayment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="btnClearAll, btnApplyCoupons, btnPay, tvItemTotal, tvItemTotalPrice, tvDelivery, tvDeliveryPrice, tvTax, tvTaxPrice, tvTotal, tvTotalPrice" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
