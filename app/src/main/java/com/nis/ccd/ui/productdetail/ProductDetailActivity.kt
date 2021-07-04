@@ -40,8 +40,8 @@ class ProductDetailActivity : AppCompatActivity() {
 
         ivMinus.setOnClickListener {
             val qty = tvQty.text.toString().toInt()
-            if (qty == 0)
-                tvQty.text = "0"
+            if (qty == 1)
+                tvQty.text = "1"
             else
                 tvQty.text = "${qty - 1}"
         }
